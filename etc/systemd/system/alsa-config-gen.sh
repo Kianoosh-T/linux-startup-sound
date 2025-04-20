@@ -14,6 +14,8 @@
 # Ensure this script is executable and run as root
 #
 
+systemctl start bluealsa
+
 ASOUND_CONF="/etc/asound.conf"
 
 # Check for connected bluetooth audio devices using bluetoothctl
