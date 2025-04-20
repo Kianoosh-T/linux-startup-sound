@@ -1,0 +1,5 @@
+#!/bin/sh
+# Xsetup - run as root before the login dialog appears
+aplay /etc/systemd/system/start1.wav
+# To prevent conflicting BlueALSA with other audio servers like Pipewire, stop the BlueALSA service after hearing sound. this also prevents unavailabilty of a2dp and audio codecs due to conflict
+$(systemctl stop bluealsa)
