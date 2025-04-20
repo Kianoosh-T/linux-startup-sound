@@ -33,6 +33,7 @@ find_bluetooth_audio_devices() {
 			# Check if it is connected
 			if echo "$info" | grep -qi "Connected: yes";then
 				echo "Bluetooth audio device connected: $device"
+				MAC=$device
 				return 0
 			else
 				echo "Device $device is not connected. Attempting to connect..."
@@ -43,6 +44,7 @@ find_bluetooth_audio_devices() {
 				info=$(bluetoothctl info "$device")
 				if echo "$info" | grep -qi "Connected: yes";then
 					echo "Successfully connected to device $device"
+					MAC=$device
 					return 0
 				else
 					echo "Failed to connect to device $device"
@@ -60,7 +62,7 @@ if find_bluetooth_audio_devices;then
 	cat <<EOF > "$ASOUND_CONF"
 
 defaults.bluealsa{
-	interface "hci0"
+	device "$MAC"
 	profile "a2dp"
 }
 
