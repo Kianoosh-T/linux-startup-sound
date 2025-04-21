@@ -6,7 +6,7 @@ I describe every problem i faced and the solution i found for it.
 
 ---
 
-At first, i decided to create a custome shell script and run it as systemd service (can check my [Reddit post](https://www.reddit.com/r/archlinux/comments/1jui4ys/having_startup_sound_before_login/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) for this) but found that script of sddm has better timing. 
+At first, i decided to create a custome shell script and run it as systemd service but found that script of sddm has better timing. 
 
 ## Problem 1
 __Got an "aplay: main:850: audio open error: Host is down" error__
